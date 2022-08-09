@@ -12,15 +12,15 @@ public class ShowMethodInterceptor {
   public static Object intercept(
       @Origin Method method,
       @SuperCall Callable<?> callable) {
-    System.out.println("[1] method : " + method.getName());
+    System.out.println("[1] method : " + method);
     try {
-      System.out.println("[2] method : " + method.getName());
+      System.out.println("[2] method : " + method);
       return callable.call();
     } catch (Exception e) {
       System.out.println("Exception :" + e.getMessage());
       return null;
     } finally {
-      System.out.println("[3] method : " + method.getName());
+      System.out.println("[3] method : " + method);
     }
   }
 }
