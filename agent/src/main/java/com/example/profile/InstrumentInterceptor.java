@@ -15,12 +15,14 @@ public class InstrumentInterceptor {
     System.out.println("[1] " + request.getMethod());
     try {
       System.out.println("[2] " + request.getMethod());
-      return callable.call();
+      Object ret = callable.call();
+      System.out.println("[3] " + request.getMethod());
+      return ret;
     } catch (Exception e) {
       System.out.println("Exception :" + e.getMessage());
       return null;
     } finally {
-      System.out.println("[3] " + request.getMethod());
+      System.out.println("[4] " + request.getMethod());
     }
   }
 }
