@@ -12,17 +12,17 @@ public class InstrumentInterceptor {
   public static Object intercept(
       @Argument(0) HttpServletRequest request,
       @SuperCall Callable<?> callable) {
-    System.out.println("[1] " + request.getMethod());
+    System.out.println("[1] request : " + request.getMethod());
     try {
-      System.out.println("[2] " + request.getMethod());
+      System.out.println("[2] request : " + request.getMethod());
       Object ret = callable.call();
-      System.out.println("[3] " + request.getMethod());
+      System.out.println("[3] request : " + request.getMethod());
       return ret;
     } catch (Exception e) {
       System.out.println("Exception :" + e.getMessage());
       return null;
     } finally {
-      System.out.println("[4] " + request.getMethod());
+      System.out.println("[4] request : " + request.getMethod());
     }
   }
 }
