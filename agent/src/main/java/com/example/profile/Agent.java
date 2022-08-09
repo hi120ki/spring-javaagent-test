@@ -18,5 +18,14 @@ public class Agent {
             .method(ElementMatchers.named("doDispatch"))
             .intercept(MethodDelegation.to(InstrumentInterceptor.class)))
         .installOn(inst);
+
+    new AgentBuilder.Default()
+        .type(
+            ElementMatchers.named(
+                "org.springframework.web.servlet.DispatcherServlet"))
+        .transform((builder, type, classLoader, module) -> builder
+            .method(ElementMatchers.named("doDispatch"))
+            .intercept(MethodDelegation.to(ShowMethodInterceptor.class)))
+        .installOn(inst);
   }
 }
