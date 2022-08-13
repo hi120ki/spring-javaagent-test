@@ -16,15 +16,15 @@ public class InstrumentInterceptor {
       @SuperCall Callable<?> callable) {
     System.out.println("[ShowMethod method1] " + request.getMethod());
     try {
-      System.out.println("[ShowMethod method1] " + request.getMethod());
+      System.out.println("[ShowMethod method2] " + request.getMethod());
       Object ret = callable.call();
-      System.out.println("[ShowMethod method1] " + request.getMethod());
+      System.out.println("[ShowMethod method3] " + request.getMethod());
       return ret;
     } catch (Exception e) {
       System.out.println("[ShowMethod Exception] " + e.getMessage());
       return null;
     } finally {
-      System.out.println("[ShowMethod method1] " + request.getMethod());
+      System.out.println("[ShowMethod method4] " + request.getMethod());
     }
   }
 }
