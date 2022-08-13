@@ -14,18 +14,17 @@ public class InstrumentInterceptor {
       @Argument(0) HttpServletRequest request,
       @Argument(1) HttpServletResponse response,
       @SuperCall Callable<?> callable) {
-    System.out.println("[1] request : " + request.getMethod());
+    System.out.println("[ShowMethod method1] " + request.getMethod());
     try {
-      System.out.println("[2] request : " + request.getMethod());
+      System.out.println("[ShowMethod method1] " + request.getMethod());
       Object ret = callable.call();
-      System.out.println("[3] request : " + request.getMethod());
-      System.out.println("[1] response : " + response.getContentType());
+      System.out.println("[ShowMethod method1] " + request.getMethod());
       return ret;
     } catch (Exception e) {
-      System.out.println("Exception :" + e.getMessage());
+      System.out.println("[ShowMethod Exception] " + e.getMessage());
       return null;
     } finally {
-      System.out.println("[4] request : " + request.getMethod());
+      System.out.println("[ShowMethod method1] " + request.getMethod());
     }
   }
 }
