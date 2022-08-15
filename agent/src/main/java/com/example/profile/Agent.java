@@ -11,6 +11,7 @@ public class Agent {
     System.out.println("agentArgs : " + agentArgs);
 
     new AgentBuilder.Default()
+        .with(AgentBuilder.Listener.StreamWriting.toSystemError().withErrorsOnly())
         .type(
             ElementMatchers.named(
                 "org.springframework.web.servlet.DispatcherServlet"))
